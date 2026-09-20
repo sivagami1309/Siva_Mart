@@ -36,12 +36,12 @@ if (!DATABASE_URL) {
 }
 
 const pool = new Pool({
-  connectionString: databaseUrl,
+  connectionString: DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   },
   connectionTimeoutMillis: 10000,
-  idleTimeoutMillis: 30000
+  
 });
 
 
