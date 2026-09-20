@@ -12,14 +12,38 @@ const path = require('path');
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-const secret = process.env.JWT_SECRET;
+const DATABASE_URL =
+  'postgres://postgres:Sivagami@123@localhost:5432/siva_mart';
+
+const JWT_SECRET =
+  'siva_mart_local_secret_2026_change_later';
+if (!DATABASE_URL) {
+  console.error('❌ DATABASE_URL is NOT SET');
+} else {
+  try {
+    const dbInfo = new URL(DATABASE_URL);
+
+    console.log('==========================================');
+    console.log('DATABASE CONFIGURATION');
+    console.log('Database host:', dbInfo.hostname);
+    console.log('Database name:', dbInfo.pathname.replace('/', ''));
+    console.log('SSL mode:', dbInfo.searchParams.get('sslmode') || 'not specified');
+    console.log('==========================================');
+  } catch (error) {
+    console.error('❌ DATABASE_URL FORMAT IS INVALID');
+    console.error(error.message);
+  }
+}
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production'
-    ? { rejectUnauthorized: false }
-    : false
+  connectionString: databaseUrl,
+  ssl: {
+    rejectUnauthorized: false
+  },
+  connectionTimeoutMillis: 10000,
+  idleTimeoutMillis: 30000
 });
+
 
 app.use(cors());
 app.use(express.json());
