@@ -1,0 +1,19 @@
+{
+  "app": {
+    "threads_num": 1,
+    "enable_session": false
+  },
+  "db_clients": [
+    {
+      "name": "default",
+      "rdbms": "postgresql",
+      "host": "127.0.0.1",
+      "port": 5432,
+      "dbname": "siva_mart",
+      "user": "postgres",
+      "passwd": "Sivagami@123",
+      "is_fast": false,
+      "connection_number": 1
+    }
+  ]
+}

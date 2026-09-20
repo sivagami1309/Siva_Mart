@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Siva Mart | Fresh groceries</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <a class="brand" href="#">
+      siva<span>mart</span>
+    </a>
+
+    <form id="search-form">
+      <input
+        id="search"
+        type="text"
+        placeholder="Search fresh groceries"
+      >
+
+      <button type="submit">
+        Search
+      </button>
+    </form>
+
+    <!-- Account -->
+    <button
+      id="account-button"
+      class="account"
+      style="display:none;"
+    >
+      👤 My Account
+    </button>
+
+    <!-- Login -->
+    <button
+      id="login-button"
+      class="account"
+    >
+      Sign in
+    </button>
+
+    <!-- Logout -->
+    <button
+      id="logout-button"
+      class="account"
+      style="display:none;"
+    >
+      🚪 Logout
+    </button>
+
+    <!-- Cart -->
+    <button
+      id="cart-button"
+      class="cart"
+    >
+      🛒 Cart
+      <b id="cart-count">0</b>
+    </button>
+
+  </header>
+
+
+  <!-- ================= CATEGORIES ================= -->
+
+  <nav id="categories">
+    <button
+      class="active"
+      data-category=""
+    >
+      All departments
+    </button>
+  </nav>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+
+    <!-- Hero section -->
+
+    <section class="hero">
+
+      <div>
+
+        <p>GROCERIES DELIVERED</p>
+
+        <h1>
+          Fresh choices for every day.
+        </h1>
+
+        <p>
+          Quality essentials, friendly prices,
+          and a simple shopping experience.
+        </p>
+
+        <a href="#products">
+          Shop essentials
+        </a>
+
+      </div>
+
+      <div class="hero-emoji">
+        🛍️
+      </div>
+
+    </section>
+
+
+    <!-- Products title -->
+
+    <section class="section-title">
+
+      <div>
+
+        <p>WHAT'S FRESH</p>
+
+        <h2>
+          Popular in Siva Mart
+        </h2>
+
+      </div>
+
+      <span id="result-count">
+        Loading products...
+      </span>
+
+    </section>
+
+
+    <!-- REAL DATABASE PRODUCTS -->
+
+    <section
+      id="products"
+      class="products"
+    ></section>
+
+  </main>
+
+
+  <!-- ================= CART ================= -->
+
+  <aside
+    id="cart-panel"
+    class="drawer"
+  >
+
+    <button
+      class="close"
+      data-close="cart-panel"
+    >
+      ×
+    </button>
+
+    <h2>
+      Your cart
+    </h2>
+
+    <div id="cart-items"></div>
+
+    <div class="total">
+
+      Total
+
+      <strong id="cart-total">
+        ₹0.00
+      </strong>
+
+    </div>
+
+    <button
+      id="checkout"
+      class="primary"
+    >
+      Checkout
+    </button>
+
+  </aside>
+
+
+  <!-- ================= LOGIN / REGISTER ================= -->
+
+  <dialog id="auth-dialog">
+
+    <button
+      class="close"
+      data-close="auth-dialog"
+    >
+      ×
+    </button>
+
+    <h2 id="auth-title">
+      Welcome to Siva Mart
+    </h2>
+
+    <p id="auth-message">
+      Sign in to place your order.
+    </p>
+
+    <form id="auth-form">
+
+      <input
+        id="name"
+        style="display:none"
+        placeholder="Your name (for new account)"
+      >
+
+      <input
+        id="email"
+        type="email"
+        placeholder="Email"
+        required
+      >
+
+      <input
+        id="password"
+        type="password"
+        placeholder="Password (at least 6 characters)"
+        required
+      >
+
+      <button
+        class="primary"
+        type="submit"
+      >
+        Continue
+      </button>
+
+    </form>
+
+    <button
+      id="toggle-auth"
+      class="text-button"
+    >
+      New here? Create an account
+    </button>
+
+  </dialog>
+
+
+  <!-- ================= MY ACCOUNT ================= -->
+
+  <dialog id="account-dialog">
+
+    <button
+      class="close"
+      data-close="account-dialog"
+    >
+      ×
+    </button>
+
+    <h2>
+      👤 My Account
+    </h2>
+
+    <p>
+      Your Siva Mart account details
+    </p>
+
+    <div class="account-details">
+
+      <div class="account-row">
+
+        <span>
+          Name
+        </span>
+
+        <strong id="account-name">
+          -
+        </strong>
+
+      </div>
+
+
+      <div class="account-row">
+
+        <span>
+          Email
+        </span>
+
+        <strong id="account-email">
+          -
+        </strong>
+
+      </div>
+
+
+      <div class="account-row">
+
+        <span>
+          Account Type
+        </span>
+
+        <strong id="account-role">
+          -
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <button
+      id="logout-button-dialog"
+      class="primary"
+      type="button"
+    >
+      🚪 Sign Out
+    </button>
+
+  </dialog>
+
+
+  <!-- ================= TOAST ================= -->
+
+  <div
+    id="toast"
+    role="status"
+  ></div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
